@@ -12,11 +12,11 @@ public class Input implements KeyListener {
 		return currentKeys[keyCode];
 	}
 
-	public static boolean getKeyDown(int keyCode) {
+	public static boolean getKeyDown(int keyCode) {		
 		return currentKeys[keyCode] && !lastKeys[keyCode];
 	}
 
-	public static boolean getKeyUp(int keyCode) {
+	public static boolean getKeyUp(int keyCode) {		
 		return !currentKeys[keyCode] && lastKeys[keyCode];
 	}
 
@@ -29,12 +29,12 @@ public class Input implements KeyListener {
 	}
 
 	public void keyPressed(KeyEvent e) {
-		// System.out.println(e.getKeyCode());
+		//System.out.println(e.getKeyCode());
 		currentKeys[e.getKeyCode()] = true;
 	}
 
 	public void keyReleased(KeyEvent e) {
-		// System.out.println(e.getKeyCode());
+		//System.out.println(e.getKeyCode());
 		currentKeys[e.getKeyCode()] = false;
 	}
 }

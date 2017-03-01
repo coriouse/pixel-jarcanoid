@@ -19,9 +19,9 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 
+import app.pixel.jarcanoid.arena.Arena;
 import app.pixel.jarcanoid.game.Game;
 import app.pixel.jarcanoid.input.Input;
-
 
 public class Render {
 
@@ -31,8 +31,8 @@ public class Render {
 	private static int canvasWidth = 0;
 	private static int canvasHeight = 0;
 
-	private static final int GAME_WIDTH = 400;
-	private static final int GAME_HEIGHT = 250;
+	private static final int GAME_WIDTH = 500;
+	private static final int GAME_HEIGHT = 350;
 
 	public static int gameWidth = 0;
 	public static int gameHeight = 0;
@@ -43,7 +43,7 @@ public class Render {
 
 	private static int targetFPS = 60;
 	private static int targetTime = 1000000000 / targetFPS;
-	
+
 	public static float camX = 0;
 	public static float camY = 0;
 
@@ -65,35 +65,34 @@ public class Render {
 			}
 		}
 
-		System.out.println("canvasWidth="+canvasWidth+", canvasHeight="+canvasHeight);
-		
+		System.out.println("canvasWidth=" + canvasWidth + ", canvasHeight=" + canvasHeight);
+
 		int xDiff = screenSize.width - canvasWidth;
 		int yDiff = screenSize.height - canvasHeight;
-		System.out.println("xDiff="+xDiff+", yDiff="+yDiff);
-		
+		System.out.println("xDiff=" + xDiff + ", yDiff=" + yDiff);
+
 		int factor = canvasWidth / GAME_WIDTH;
-		
-		System.out.println("factor="+xDiff);
+
+		System.out.println("factor=" + xDiff);
 
 		gameWidth = canvasWidth / factor + xDiff / factor;
 		gameHeight = canvasHeight / factor + yDiff / factor;
 
-		System.out.println("gameWidth="+gameWidth+", gameHeight="+gameHeight);
+		System.out.println("gameWidth=" + gameWidth + ", gameHeight=" + gameHeight);
 		canvasWidth = gameWidth + factor;
 		canvasHeight = gameHeight + factor;
-		System.out.println("canvasWidth="+canvasWidth+", canvasHeight="+canvasHeight);
-		
+		System.out.println("canvasWidth=" + canvasWidth + ", canvasHeight=" + canvasHeight);
+
 	}
 
 	private static void makeFullScreen() {
-	//	GraphicsEnvironment env = GraphicsEnvironment.getLocalGraphicsEnvironment();
-	//	GraphicsDevice gd = env.getDefaultScreenDevice();
+		GraphicsEnvironment env = GraphicsEnvironment.getLocalGraphicsEnvironment();
+		GraphicsDevice gd = env.getDefaultScreenDevice();
 		frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
-		//if (gd.isFullScreenSupported()) {
+		if (gd.isFullScreenSupported()) {
 			frame.setUndecorated(true);
-		//	gd.setFullScreenWindow(frame);
-		//}
-
+			gd.setFullScreenWindow(frame);
+		}
 	}
 
 	public static void init() {
@@ -144,11 +143,11 @@ public class Render {
 					g.fillRect(0, 0, gameWidth, gameHeight);
 
 					// UPDATE STUFF
-				//	Arena.update();
-				//	Input.finishInput();
+					Arena.update();
+					Input.finishInput();
 
 					// RENDER STUFF
-				//	Arena.render(g);
+					Arena.render(g);
 
 					// Draw FPS counter
 					g.setColor(Color.red);

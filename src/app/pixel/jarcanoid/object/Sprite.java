@@ -2,12 +2,9 @@ package app.pixel.jarcanoid.object;
 
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
-import java.util.ArrayList;
 
 import app.pixel.jarcanoid.graphic.Animation;
 import app.pixel.jarcanoid.graphic.Render;
-
-
 
 public class Sprite {
 
@@ -46,64 +43,53 @@ public class Sprite {
 		int realX = (int) posX - image.getWidth() / 2;
 		int realY = (int) posY - image.getHeight() / 2;
 
-		realX = realX - (int) Render.camX + Render.gameWidth / 2;
-		realY = realY - (int) Render.camY + Render.gameHeight / 2;
+		// realX = realX - (int) Render.camX + Render.gameWidth / 2;
+		// realY = realY - (int) Render.camY + Render.gameHeight / 2;
 
 		g.drawImage(image, realX, realY, image.getWidth(), image.getHeight(), null);
 	}
 
-	/*protected boolean doesCollide(float x, float y) {
-
-		float myLeft = x - width / 2;
-		float myRight = x + width / 2;
-		float myUp = y - height / 2;
-		float myDown = y + height / 2;
-
-		for (Sprite sprite : World.currentWorld.spites) {
-
-			if (sprite == this || !sprite.isSolid) {
-				continue;
-			}
-			float otherLeft = sprite.posX - sprite.width / 2;
-			float otherRight = sprite.posX + sprite.width / 2;
-			float otherUp = sprite.posY - sprite.height / 2;
-			float otherDown = sprite.posY + sprite.height / 2;
-
-			if (myLeft < otherRight && myRight > otherLeft && myDown > otherUp && myUp < otherDown) {
-				return true;
-			}
-		}
-
-		return false;
-
-	}*/
+	/*
+	 * protected boolean doesCollide(float x, float y) {
+	 * 
+	 * float myLeft = x - width / 2; float myRight = x + width / 2; float myUp =
+	 * y - height / 2; float myDown = y + height / 2;
+	 * 
+	 * for (Sprite sprite : World.currentWorld.spites) {
+	 * 
+	 * if (sprite == this || !sprite.isSolid) { continue; } float otherLeft =
+	 * sprite.posX - sprite.width / 2; float otherRight = sprite.posX +
+	 * sprite.width / 2; float otherUp = sprite.posY - sprite.height / 2; float
+	 * otherDown = sprite.posY + sprite.height / 2;
+	 * 
+	 * if (myLeft < otherRight && myRight > otherLeft && myDown > otherUp &&
+	 * myUp < otherDown) { return true; } }
+	 * 
+	 * return false;
+	 * 
+	 * }
+	 */
 
 	// Specific collide
-/*	protected Sprite[] getColliders(float x, float y) {
-
-		ArrayList<Sprite> sprites = new ArrayList<Sprite>();
-		float myLeft = x - width / 2;
-		float myRight = x + width / 2;
-		float myUp = y - height / 2;
-		float myDown = y + height / 2;
-
-		for (Sprite sprite : World.currentWorld.spites) {
-
-			if (sprite == this || !sprite.isSolid) {
-				continue;
-			}
-			float otherLeft = sprite.posX - sprite.width / 2;
-			float otherRight = sprite.posX + sprite.width / 2;
-			float otherUp = sprite.posY - sprite.height / 2;
-			float otherDown = sprite.posY + sprite.height / 2;
-
-			if (myLeft < otherRight && myRight > otherLeft && myDown > otherUp && myUp < otherDown) {
-				sprites.add(sprite);
-			}
-		}
-
-		Sprite[] spriteArray = new Sprite[sprites.size()];
-		return sprites.toArray(spriteArray);
-	}*/
+	/*
+	 * protected Sprite[] getColliders(float x, float y) {
+	 * 
+	 * ArrayList<Sprite> sprites = new ArrayList<Sprite>(); float myLeft = x -
+	 * width / 2; float myRight = x + width / 2; float myUp = y - height / 2;
+	 * float myDown = y + height / 2;
+	 * 
+	 * for (Sprite sprite : World.currentWorld.spites) {
+	 * 
+	 * if (sprite == this || !sprite.isSolid) { continue; } float otherLeft =
+	 * sprite.posX - sprite.width / 2; float otherRight = sprite.posX +
+	 * sprite.width / 2; float otherUp = sprite.posY - sprite.height / 2; float
+	 * otherDown = sprite.posY + sprite.height / 2;
+	 * 
+	 * if (myLeft < otherRight && myRight > otherLeft && myDown > otherUp &&
+	 * myUp < otherDown) { sprites.add(sprite); } }
+	 * 
+	 * Sprite[] spriteArray = new Sprite[sprites.size()]; return
+	 * sprites.toArray(spriteArray); }
+	 */
 
 }
