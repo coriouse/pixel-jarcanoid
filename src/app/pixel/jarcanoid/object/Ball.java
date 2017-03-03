@@ -3,7 +3,9 @@ package app.pixel.jarcanoid.object;
 import java.awt.Color;
 import java.awt.Graphics;
 
+import app.pixel.jarcanoid.arena.Arena;
 import app.pixel.jarcanoid.graphic.Render;
+
 
 public class Ball extends Mob {
 
@@ -26,12 +28,10 @@ public class Ball extends Mob {
 		
 		posX += moveX * deltaTime + this.runSpeed;
 		posY -= moveY * deltaTime + this.runSpeed;
-		//TODO doesn't work
-		if(!doesCollide(posX, posY))  {
-			System.out.println("base");
-		}
 		
-		//System.out.println(moveX);
+		
+		//TODO doesn't work
+		doesCollide(posX, posY);
 	}
 
 	public void render(Graphics g) {
