@@ -20,6 +20,11 @@ public class Game {
 		Arena.currentWorld.addSprite(
 				new WallRight(0, 0, Render.gameWidth - 10, 10, Render.gameWidth - 10, Render.gameHeight - 10));
 		Arena.currentWorld.addSprite(new WallLeft(0, 0, 10, 10, 10, Render.gameHeight - 10));
+		//Proof
+		Arena.currentWorld.addSprite(new WallLeft(0, 0, 10, 10, Render.gameWidth - 10, 10));
+		//Ground
+		Arena.currentWorld.addSprite(new WallLeft(0, 0, 10, Render.gameHeight - 10, Render.gameWidth - 10, Render.gameHeight - 10));
+		
 		//Ball
 		Arena.currentWorld.addSprite(new Ball(45, 200, 100, 40));
 		
