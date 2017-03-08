@@ -7,15 +7,11 @@ import app.pixel.jarcanoid.graphic.Render;
 
 public class Base extends Sprite {
 
-	int x1, y1, x2, y2;
-
-	public Base(float posX, float posY, int x1, int y1, int x2, int y2) {
+	public Base(float posX, float posY, int width, int height) {
 		super(posX, posY);
 
-		this.x1 = x1;
-		this.y1 = y1;
-		this.x2 = x2;
-		this.y2 = y2;
+		this.width = width;
+		this.height = height;
 
 	}
 
@@ -25,6 +21,7 @@ public class Base extends Sprite {
 
 	public void render(Graphics g) {
 		g.setColor(Color.BLACK);	
-		g.drawLine(this.x1, this.y1, this.x2, this.y2);
+		//g.drawLine((int)this.posX, (int)this.posY, (int)this.width, (int)this.height);
+		g.fillRect((int) (posX - width / 2) + Render.gameWidth / 2, (int) (posY - height / 2) + Render.gameHeight / 2, (int)this.width, (int)this.height);
 	}
 }

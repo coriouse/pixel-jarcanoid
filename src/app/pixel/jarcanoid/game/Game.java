@@ -17,19 +17,24 @@ public class Game {
 		Arena.currentWorld = new Arena();
 		//Platform
 		Arena.currentWorld.addSprite(new Platform(0, 200, 100, 20));
+		
+		//Arena.currentWorld.addSprite(new Platform(180, -100, 150, 150));
+
 
 		//Walls
 		Arena.currentWorld.addSprite(
-				new WallRight(0, 0, Render.gameWidth - 10, 10, Render.gameWidth - 10, Render.gameHeight - 10));
-		Arena.currentWorld.addSprite(new WallLeft(0, 0, 10, 10, 10, Render.gameHeight - 10));
+				new WallRight(390 , 5, 5, Render.gameHeight - 35));
+		Arena.currentWorld.addSprite(new WallLeft(-390, 5, 5,  Render.gameHeight - 35));
 		//Proof
-		Arena.currentWorld.addSprite(new Proof(0, 0, 10, 10, Render.gameWidth - 10, 10));
+		Arena.currentWorld.addSprite(new Proof(0,-200, Render.gameWidth-20, 5));
 		//Ground
-		Arena.currentWorld.addSprite(new Ground(0, 0, 10, Render.gameHeight - 10, Render.gameWidth - 10, Render.gameHeight - 10));
+		Arena.currentWorld.addSprite(new Ground(0, 215, Render.gameWidth-15, 5));
 		
 		//Ball
 		Arena.currentWorld.addSprite(new Ball(45, 200, 100, 40));
 		
+	
+			
 		//blocks
 		//blcok stuff
 	}

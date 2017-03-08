@@ -29,9 +29,11 @@ public class Ball extends Mob {
 		posX += moveX * deltaTime + this.runSpeed;
 		posY -= moveY * deltaTime + this.runSpeed;
 		
-		
 		//TODO doesn't work
-		doesCollide(posX, posY);
+		System.out.println(doesCollide(posX, posY));
+		
+		
+		//doesCollide(posX, posY);
 	}
 
 	public void render(Graphics g) {

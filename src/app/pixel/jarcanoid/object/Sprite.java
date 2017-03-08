@@ -68,10 +68,12 @@ public class Sprite {
 			float otherDown = sprite.posY + sprite.height / 2;
 
 			if (myLeft < otherRight && myRight > otherLeft && myDown > otherUp && myUp < otherDown) {
+				//System.out.println(sprite);
 				return true;
 			}
+			System.out.println(sprite);
 		}
-
+	
 		return false;
 
 	}

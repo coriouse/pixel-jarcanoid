@@ -40,4 +40,11 @@ public class Platform extends Mob {
 				(int) width, (int) height);
 	}
 
+	@Override
+	public String toString() {
+		return "Platform []";
+	}
+
+	
+	
 }
