@@ -17,10 +17,6 @@ public class Game {
 		Arena.currentWorld = new Arena();
 		//Platform
 		Arena.currentWorld.addSprite(new Platform(0, 200, 100, 20));
-		
-		//Arena.currentWorld.addSprite(new Platform(180, -100, 150, 150));
-
-
 		//Walls
 		Arena.currentWorld.addSprite(
 				new WallRight(390 , 5, 5, Render.gameHeight - 35));
@@ -32,9 +28,7 @@ public class Game {
 		
 		//Ball
 		Arena.currentWorld.addSprite(new Ball(45, 200, 100, 40));
-		
-	
-			
+					
 		//blocks
 		//blcok stuff
 	}

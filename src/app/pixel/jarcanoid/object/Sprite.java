@@ -71,11 +71,8 @@ public class Sprite {
 				//System.out.println(sprite);
 				return true;
 			}
-			System.out.println(sprite);
-		}
-	
+		}	
 		return false;
-
 	}
 
 	protected Sprite[] getColliders(float x, float y) {
