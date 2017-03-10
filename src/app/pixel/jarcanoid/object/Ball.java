@@ -12,6 +12,7 @@ public class Ball extends Mob {
 	private float moveX = 0;
 	private float moveY = 0;
 	private int direction = 1; // 1 - up, -1 - down
+	private int corner = 1; // 0 - left, 1- right
 
 	public Ball(float posX, float posY, int width, int height) {
 		super(posX, posY);
@@ -24,21 +25,53 @@ public class Ball extends Mob {
 
 	public void update(float deltaTime) {
 
-		// posX += moveX * deltaTime + this.runSpeed;
-		// posY -= moveY * deltaTime + this.runSpeed;
-		System.out.println("posY=" + posY);
-		// TODO doesn't work
+		// up
 		if (doesCollide(posX, posY) && posY < 0) {
-			direction = -1;
-		} else if (doesCollide(posX, posY) && posY > 0) {
-			direction = 1;
+			if (direction == 1 && corner == 1) {
+				direction = 1;
+				corner = 0;
+			} else if (direction == 1 && corner == 0) {
+				direction = -1;
+				corner = 0;
+			}
+			// down
+		} else if (doesCollide(posX, posY) && posY > 0) {					
+			
+			if (direction == -1 && corner == 0) {			
+					direction = -1;
+					corner = 1;
+			} else if (direction == -1 && corner == 1) {
+				direction = 1;
+				corner = 1;
+			}
 		}
+		
+		
+		//TODO defenition of ball direction
+		Sprite[] sprites = getColliders(posX, posY);
+		for(Sprite sprite : sprites) {
+			if(sprite instanceof Platform) {
+				System.out.println(sprite);
+			}
+		}
+		
+		
 
-		if (direction == 1) {
-			posY -= moveY * deltaTime + this.runSpeed;
-		} else if (direction == -1) {
-			posY += moveY * deltaTime + this.runSpeed;
+		if (direction == 1 && corner == 1) {
+			posX += moveX * deltaTime + this.runSpeed;
+			posY -= moveY + 50 * deltaTime + this.runSpeed;
+		} else if (direction == 1 && corner == 0) {
+			posX -= moveX * deltaTime + this.runSpeed;
+			posY -= moveY + 50 * deltaTime + this.runSpeed;
+		} else if (direction == -1 && corner == 0) {
+			posX -= moveX * deltaTime + this.runSpeed;
+			posY += moveY + 50 * deltaTime + this.runSpeed;
+		} else if (direction == -1 && corner == 1) {
+			posX += moveX * deltaTime + this.runSpeed;
+			posY += moveY + 50 * deltaTime + this.runSpeed;
 		}
+				
+
 	}
 
 	public void render(Graphics g) {

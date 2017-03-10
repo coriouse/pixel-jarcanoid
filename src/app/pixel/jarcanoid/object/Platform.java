@@ -9,6 +9,8 @@ import app.pixel.jarcanoid.graphic.Render;
 import app.pixel.jarcanoid.input.Input;
 
 public class Platform extends Mob {
+	// TODO Enum PlatformDirection
+	public static int platfomDirection = 1; // 1 - right, 0 - left
 
 	public Platform(float posX, float posY, float width, float height) {
 		super(posX, posY);
@@ -25,9 +27,11 @@ public class Platform extends Mob {
 
 		if (Input.getKey(KeyEvent.VK_LEFT)) {
 			moveX -= runSpeed;
+			platfomDirection = 0;
 		}
 		if (Input.getKey(KeyEvent.VK_RIGHT)) {
 			moveX += runSpeed;
+			platfomDirection = 1;
 		}
 
 		posX += moveX;
@@ -45,6 +49,4 @@ public class Platform extends Mob {
 		return "Platform []";
 	}
 
-	
-	
 }
