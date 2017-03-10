@@ -25,6 +25,8 @@ public class Ball extends Mob {
 
 	public void update(float deltaTime) {
 
+		System.out.println("direction == " + direction + "  && corner ==" + corner+", Platform.platfomDirection="+Platform.platfomDirection);
+
 		// up
 		if (doesCollide(posX, posY) && posY < 0) {
 			if (direction == 1 && corner == 1) {
@@ -35,27 +37,28 @@ public class Ball extends Mob {
 				corner = 0;
 			}
 			// down
-		} else if (doesCollide(posX, posY) && posY > 0) {					
-			
-			if (direction == -1 && corner == 0) {			
-					direction = -1;
-					corner = 1;
-			} else if (direction == -1 && corner == 1) {
-				direction = 1;
+		} else if (doesCollide(posX, posY) && posY > 0) {
+
+			if (direction == -1 && corner == 0) {
+				direction = -1;
 				corner = 1;
+			} else if (direction == -1 && corner == 1) {
+				if (Platform.platfomDirection == 1) {
+					direction = 1;
+					corner = 1;
+				} else if (Platform.platfomDirection == 0) {
+					direction = 1;
+					corner = 0;
+				}
 			}
 		}
-		
-		
-		//TODO defenition of ball direction
-		Sprite[] sprites = getColliders(posX, posY);
-		for(Sprite sprite : sprites) {
-			if(sprite instanceof Platform) {
-				System.out.println(sprite);
-			}
-		}
-		
-		
+
+		// TODO defenition of ball direction
+		/*
+		 * Sprite[] sprites = getColliders(posX, posY); for(Sprite sprite :
+		 * sprites) { if(sprite instanceof Platform) {
+		 * System.out.println(sprite); } }
+		 */
 
 		if (direction == 1 && corner == 1) {
 			posX += moveX * deltaTime + this.runSpeed;
@@ -70,7 +73,6 @@ public class Ball extends Mob {
 			posX += moveX * deltaTime + this.runSpeed;
 			posY += moveY + 50 * deltaTime + this.runSpeed;
 		}
-				
 
 	}
 
