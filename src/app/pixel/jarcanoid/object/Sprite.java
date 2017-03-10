@@ -102,5 +102,9 @@ public class Sprite {
 		return sprites.toArray(spriteArray);
 
 	}
+	
+	protected Object getSprite(Sprite[] sprite) {
+		return sprite[0];
+	}
 
 }

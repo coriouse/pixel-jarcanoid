@@ -5,12 +5,13 @@ import java.awt.Graphics;
 
 import com.sun.glass.events.KeyEvent;
 
+import app.pixel.jarcanoid.game.Direction;
 import app.pixel.jarcanoid.graphic.Render;
 import app.pixel.jarcanoid.input.Input;
 
 public class Platform extends Mob {
-	// TODO Enum PlatformDirection
-	public static int platfomDirection = 1; // 1 - right, 0 - left
+
+	public static Direction direction = Direction.RIGHT;
 
 	public Platform(float posX, float posY, float width, float height) {
 		super(posX, posY);
@@ -27,11 +28,11 @@ public class Platform extends Mob {
 
 		if (Input.getKey(KeyEvent.VK_LEFT)) {
 			moveX -= runSpeed;
-			platfomDirection = 0;
+			direction = Direction.RIGHT;
 		}
 		if (Input.getKey(KeyEvent.VK_RIGHT)) {
 			moveX += runSpeed;
-			platfomDirection = 1;
+			direction = Direction.RIGHT;
 		}
 
 		posX += moveX;

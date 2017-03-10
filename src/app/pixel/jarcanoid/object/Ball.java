@@ -2,8 +2,9 @@ package app.pixel.jarcanoid.object;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.util.Arrays;
 
-import app.pixel.jarcanoid.arena.Arena;
+import app.pixel.jarcanoid.game.Direction;
 import app.pixel.jarcanoid.graphic.Render;
 
 public class Ball extends Mob {
@@ -11,8 +12,7 @@ public class Ball extends Mob {
 	private float radius = 10f;
 	private float moveX = 0;
 	private float moveY = 0;
-	private int direction = 1; // 1 - up, -1 - down
-	private int corner = 1; // 0 - left, 1- right
+	private Direction direction = Direction.UP_RIGHT;
 
 	public Ball(float posX, float posY, int width, int height) {
 		super(posX, posY);
@@ -25,51 +25,53 @@ public class Ball extends Mob {
 
 	public void update(float deltaTime) {
 
-		System.out.println("direction == " + direction + "  && corner ==" + corner+", Platform.platfomDirection="+Platform.platfomDirection);
+		
 
+		// TODO need to resolve direction of the ball
+		System.out.println("direction == " + direction);
 		// up
 		if (doesCollide(posX, posY) && posY < 0) {
-			if (direction == 1 && corner == 1) {
-				direction = 1;
-				corner = 0;
-			} else if (direction == 1 && corner == 0) {
-				direction = -1;
-				corner = 0;
+			if (direction == Direction.UP_RIGHT) {
+				if ((Platform.direction == Direction.RIGHT) &&  getSprite(getColliders(posX, posY)) instanceof Proof) {
+					direction = Direction.DOWN_RIGHT;
+				} else {
+					direction = Direction.UP_LEFT;
+				}
+			} else if (direction == Direction.UP_LEFT) {
+
+				if ((Platform.direction == Direction.LEFT) && getSprite(getColliders(posX, posY)) instanceof Proof) {
+					direction = Direction.DOWN_LEFT;
+				} else {
+					direction = Direction.UP_RIGHT;
+				}
 			}
 			// down
 		} else if (doesCollide(posX, posY) && posY > 0) {
-
-			if (direction == -1 && corner == 0) {
-				direction = -1;
-				corner = 1;
-			} else if (direction == -1 && corner == 1) {
-				if (Platform.platfomDirection == 1) {
-					direction = 1;
-					corner = 1;
-				} else if (Platform.platfomDirection == 0) {
-					direction = 1;
-					corner = 0;
+			if (direction == Direction.DOWN_LEFT) {
+				if (Platform.direction == Direction.LEFT && getSprite(getColliders(posX, posY)) instanceof Platform) {
+					direction = Direction.UP_LEFT;
+				} else {
+					direction = Direction.DOWN_RIGHT;
+				}
+			} else if (direction == Direction.DOWN_RIGHT) {
+				if (Platform.direction == Direction.RIGHT && getSprite(getColliders(posX, posY)) instanceof Platform) {
+					direction = Direction.UP_RIGHT;
+				} else {
+					direction = Direction.DOWN_LEFT;
 				}
 			}
 		}
 
-		// TODO defenition of ball direction
-		/*
-		 * Sprite[] sprites = getColliders(posX, posY); for(Sprite sprite :
-		 * sprites) { if(sprite instanceof Platform) {
-		 * System.out.println(sprite); } }
-		 */
-
-		if (direction == 1 && corner == 1) {
+		if (direction == Direction.UP_RIGHT) {
 			posX += moveX * deltaTime + this.runSpeed;
 			posY -= moveY + 50 * deltaTime + this.runSpeed;
-		} else if (direction == 1 && corner == 0) {
+		} else if (direction == Direction.UP_LEFT) {
 			posX -= moveX * deltaTime + this.runSpeed;
 			posY -= moveY + 50 * deltaTime + this.runSpeed;
-		} else if (direction == -1 && corner == 0) {
+		} else if (direction == Direction.DOWN_LEFT) {
 			posX -= moveX * deltaTime + this.runSpeed;
 			posY += moveY + 50 * deltaTime + this.runSpeed;
-		} else if (direction == -1 && corner == 1) {
+		} else if (direction == Direction.DOWN_RIGHT) {
 			posX += moveX * deltaTime + this.runSpeed;
 			posY += moveY + 50 * deltaTime + this.runSpeed;
 		}
@@ -84,11 +86,5 @@ public class Ball extends Mob {
 		g.fillOval(((int) (posX - width / 2) + Render.gameWidth / 2) - (int) radius,
 				((int) (posY - height / 2) + Render.gameHeight / 2) - (int) radius, (int) radius * 2, (int) radius * 2);
 
-	}
-
-	public void changeDirection(int derection) {
-		// TODO добавить enum Direction
-		// TODO изменить на enum Direction.LEFT,...
-		this.direction = direction;
 	}
 }
