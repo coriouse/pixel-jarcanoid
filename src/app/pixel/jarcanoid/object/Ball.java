@@ -12,7 +12,7 @@ public class Ball extends Mob {
 	private float radius = 10f;
 	private float moveX = 0;
 	private float moveY = 0;
-	private Direction direction = Direction.UP_RIGHT;
+	private Direction direction = Direction.UP;
 
 	public Ball(float posX, float posY, int width, int height) {
 		super(posX, posY);
@@ -31,73 +31,67 @@ public class Ball extends Mob {
 				+ Arrays.toString(sprites)+", posY="+posY);
 		// up
 		if (sprites.length > 0) {
+			
+		if(direction == Direction.UP && Platform.direction == Direction.FREE && getSprite(sprites) instanceof Proof) {
+			direction = Direction.DOWN;
+		} else if(direction == Direction.DOWN && Platform.direction == Direction.FREE && getSprite(sprites) instanceof Platform) { 
+			direction = Direction.UP;
+		} else if(direction == Direction.UP_RIGHT && Platform.direction == Direction.RIGHT && getSprite(sprites) instanceof Proof) {
+			direction = Direction.DOWN_RIGHT;
+		} else if(direction == Direction.UP_RIGHT && Platform.direction == Direction.RIGHT && getSprite(sprites) instanceof WallRight) {
+			direction = Direction.UP_LEFT;
+		} 
 
-			if (posY < 0) {
-				if (direction == Direction.UP_RIGHT) {
+		//	if (posY < 0) {
+				/*if (direction == Direction.UP_RIGHT && ) {
 
-					if ((Platform.direction == Direction.RIGHT)/*
-																 * && getSprite(
-																 * sprites)
-																 * instanceof
-																 * Proof
-																 */) {
+					if (Platform.direction == Direction.RIGHT  && getSprite(sprites) instanceof Proof) {
 						direction = Direction.DOWN_RIGHT;
 					} else {
 						direction = Direction.UP_LEFT;
 					}
 				} else if (direction == Direction.UP_LEFT) {
-					if ((Platform.direction == Direction.LEFT) /*
-																 * && getSprite(
-																 * sprites)
-																 * instanceof
-																 * Proof
-																 */) {
+					if ((Platform.direction == Direction.LEFT)  && getSprite(sprites) instanceof Proof) {
 						direction = Direction.DOWN_LEFT;
 					} else {
 						direction = Direction.UP_RIGHT;
 					}
-				}
-			} else if (posY > 0) {
+				}*/
+		//	} else if (posY > 0) {
 				// down
 				 
-				if (direction == Direction.DOWN_LEFT) {
-					if (Platform.direction == Direction.LEFT/*
-															 * && getSprite(
-															 * sprites)
-															 * instanceof
-															 * Platform
-															 */) {
+				/*if (direction == Direction.DOWN_LEFT) {
+					if (Platform.direction == Direction.LEFT && getSprite(sprites) instanceof Platform) {
 						direction = Direction.UP_LEFT;
 					} else {
 						direction = Direction.DOWN_RIGHT;
 					}
 				} else if (direction == Direction.DOWN_RIGHT) {
-					if (Platform.direction == Direction.RIGHT /*
-																 * && getSprite(
-																 * sprites)
-																 * instanceof
-																 * Platform
-																 */) {
+					if (Platform.direction == Direction.RIGHT  && getSprite(sprites) instanceof Platform) {
 						direction = Direction.UP_RIGHT;
 					} else {
 						direction = Direction.DOWN_LEFT;
 					}
 				}
-			}
+			}*/
+	//	}
 		}
-
 		if (direction == Direction.UP_RIGHT) {
 			posX += moveX * deltaTime + this.runSpeed;
-			posY -= moveY + 50 * deltaTime + this.runSpeed;
+			posY -= moveY  * deltaTime + this.runSpeed;
 		} else if (direction == Direction.UP_LEFT) {
 			posX -= moveX * deltaTime + this.runSpeed;
-			posY -= moveY + 50 * deltaTime + this.runSpeed;
+			posY -= moveY  * deltaTime + this.runSpeed;
 		} else if (direction == Direction.DOWN_LEFT) {
 			posX -= moveX * deltaTime + this.runSpeed;
-			posY += moveY + 50 * deltaTime + this.runSpeed;
+			posY += moveY  * deltaTime + this.runSpeed;
 		} else if (direction == Direction.DOWN_RIGHT) {
 			posX += moveX * deltaTime + this.runSpeed;
-			posY += moveY + 50 * deltaTime + this.runSpeed;
+			posY += moveY * deltaTime + this.runSpeed;
+		} else if (direction == Direction.UP) {
+			posY -= moveY  * deltaTime + this.runSpeed;
+		} else if (direction == Direction.DOWN) {
+			posY += moveY  * deltaTime + this.runSpeed;
 		}
 
 	}

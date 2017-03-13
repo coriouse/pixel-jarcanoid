@@ -11,7 +11,7 @@ import app.pixel.jarcanoid.input.Input;
 
 public class Platform extends Mob {
 
-	public static Direction direction = Direction.RIGHT;
+	public static Direction direction = Direction.FREE;
 
 	public Platform(float posX, float posY, float width, float height) {
 		super(posX, posY);
