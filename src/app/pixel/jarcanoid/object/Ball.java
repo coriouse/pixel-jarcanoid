@@ -7,6 +7,7 @@ import java.util.Arrays;
 import app.pixel.jarcanoid.game.Direction;
 import app.pixel.jarcanoid.graphic.Render;
 
+
 public class Ball extends Mob {
 
 	private float radius = 10f;
@@ -25,73 +26,61 @@ public class Ball extends Mob {
 
 	public void update(float deltaTime) {
 
-		// TODO need to resolve direction of the ball
+		// TODO need to resolve normal direction of the ball
 		Sprite[] sprites = getColliders(posX, posY);
 		System.out.println("Platform.direction=[" + Platform.direction + "], direction=[" + direction + "],"
-				+ Arrays.toString(sprites)+", posY="+posY);
-		// up
+				+ Arrays.toString(sprites) + ", posY=" + posY);
+		
 		if (sprites.length > 0) {
+			if (direction == Direction.UP && Platform.direction == Direction.FREE
+					&& getSprite(sprites) instanceof Proof) {
+				direction = Direction.DOWN;
+			} else if (direction == Direction.DOWN && Platform.direction == Direction.FREE
+					&& getSprite(sprites) instanceof Platform) {
+				direction = Direction.UP;
+			} else if (direction == Direction.DOWN && Platform.direction == Direction.RIGHT) {
+				direction = Direction.UP_RIGHT;
+			} else if (direction == Direction.DOWN && Platform.direction == Direction.LEFT) {
+				direction = Direction.UP_LEFT;
+			} else if (direction == Direction.UP_RIGHT && getSprite(sprites) instanceof Proof) {
+				direction = Direction.DOWN_RIGHT;
+			} else if (direction == Direction.UP_RIGHT && getSprite(sprites) instanceof WallRight) {
+				direction = Direction.UP_LEFT;
+			} else if (direction == Direction.UP_LEFT && getSprite(sprites) instanceof Proof) {
+				direction = Direction.DOWN_LEFT;
+			} else if (direction == Direction.DOWN_LEFT && getSprite(sprites) instanceof Platform) {
+				direction = Direction.UP_LEFT;
+			} else if (direction == Direction.UP_LEFT && getSprite(sprites) instanceof WallLeft) {
+				direction = Direction.UP_RIGHT;
+			} else if (direction == Direction.DOWN_RIGHT && getSprite(sprites) instanceof Platform) {
+				direction = Direction.UP_RIGHT;
+			}
 			
-		if(direction == Direction.UP && Platform.direction == Direction.FREE && getSprite(sprites) instanceof Proof) {
-			direction = Direction.DOWN;
-		} else if(direction == Direction.DOWN && Platform.direction == Direction.FREE && getSprite(sprites) instanceof Platform) { 
-			direction = Direction.UP;
-		} else if(direction == Direction.UP_RIGHT && Platform.direction == Direction.RIGHT && getSprite(sprites) instanceof Proof) {
-			direction = Direction.DOWN_RIGHT;
-		} else if(direction == Direction.UP_RIGHT && Platform.direction == Direction.RIGHT && getSprite(sprites) instanceof WallRight) {
-			direction = Direction.UP_LEFT;
-		} 
-
-		//	if (posY < 0) {
-				/*if (direction == Direction.UP_RIGHT && ) {
-
-					if (Platform.direction == Direction.RIGHT  && getSprite(sprites) instanceof Proof) {
-						direction = Direction.DOWN_RIGHT;
-					} else {
-						direction = Direction.UP_LEFT;
-					}
-				} else if (direction == Direction.UP_LEFT) {
-					if ((Platform.direction == Direction.LEFT)  && getSprite(sprites) instanceof Proof) {
-						direction = Direction.DOWN_LEFT;
-					} else {
-						direction = Direction.UP_RIGHT;
-					}
-				}*/
-		//	} else if (posY > 0) {
-				// down
-				 
-				/*if (direction == Direction.DOWN_LEFT) {
-					if (Platform.direction == Direction.LEFT && getSprite(sprites) instanceof Platform) {
-						direction = Direction.UP_LEFT;
-					} else {
-						direction = Direction.DOWN_RIGHT;
-					}
-				} else if (direction == Direction.DOWN_RIGHT) {
-					if (Platform.direction == Direction.RIGHT  && getSprite(sprites) instanceof Platform) {
-						direction = Direction.UP_RIGHT;
-					} else {
-						direction = Direction.DOWN_LEFT;
-					}
+			//remove block
+			for (Sprite sprite : sprites) {
+				if (sprite instanceof Block) {
+					Block block = (Block) sprite;
+					block.remove(sprite);					
 				}
-			}*/
-	//	}
+			}
+
 		}
 		if (direction == Direction.UP_RIGHT) {
 			posX += moveX * deltaTime + this.runSpeed;
-			posY -= moveY  * deltaTime + this.runSpeed;
+			posY -= moveY * deltaTime + this.runSpeed;
 		} else if (direction == Direction.UP_LEFT) {
 			posX -= moveX * deltaTime + this.runSpeed;
-			posY -= moveY  * deltaTime + this.runSpeed;
+			posY -= moveY * deltaTime + this.runSpeed;
 		} else if (direction == Direction.DOWN_LEFT) {
 			posX -= moveX * deltaTime + this.runSpeed;
-			posY += moveY  * deltaTime + this.runSpeed;
+			posY += moveY * deltaTime + this.runSpeed;
 		} else if (direction == Direction.DOWN_RIGHT) {
 			posX += moveX * deltaTime + this.runSpeed;
 			posY += moveY * deltaTime + this.runSpeed;
 		} else if (direction == Direction.UP) {
-			posY -= moveY  * deltaTime + this.runSpeed;
+			posY -= moveY * deltaTime + this.runSpeed;
 		} else if (direction == Direction.DOWN) {
-			posY += moveY  * deltaTime + this.runSpeed;
+			posY += moveY * deltaTime + this.runSpeed;
 		}
 
 	}

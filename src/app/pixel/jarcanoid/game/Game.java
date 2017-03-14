@@ -5,6 +5,7 @@ import app.pixel.jarcanoid.graphic.Render;
 import app.pixel.jarcanoid.object.WallLeft;
 import app.pixel.jarcanoid.object.WallRight;
 import app.pixel.jarcanoid.object.Ball;
+import app.pixel.jarcanoid.object.Block;
 import app.pixel.jarcanoid.object.Ground;
 import app.pixel.jarcanoid.object.Platform;
 import app.pixel.jarcanoid.object.Proof;
@@ -30,7 +31,10 @@ public class Game {
 		Arena.currentWorld.addSprite(new Ball(45, 200, 100, 40));
 					
 		//blocks
-		//blcok stuff
+		Arena.currentWorld.addSprite(new Block(0, -150, 80, 40, 0));		
+		Arena.currentWorld.addSprite(new Block(90, -150, 80, 40, 1));
+		Arena.currentWorld.addSprite(new Block(-90, -150, 80, 40, 2));
+		
 	}
 
 	public static void quit() {
