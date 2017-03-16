@@ -34,7 +34,7 @@ public class Block extends Sprite {
 
 	@Override
 	public String toString() {
-		return "Block ["+this.number+"]";
+		return "Block ["+this.number+"][posX="+posX+", posY="+posY+"]";
 	}
 
 }

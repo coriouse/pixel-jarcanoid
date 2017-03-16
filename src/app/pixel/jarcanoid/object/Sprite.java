@@ -95,6 +95,8 @@ public class Sprite {
 
 			if (myLeft < otherRight && myRight > otherLeft && myDown > otherUp && myUp < otherDown) {
 				sprites.add(sprite);
+				Sprite[] spriteArray = new Sprite[sprites.size()];
+				return sprites.toArray(spriteArray);
 			}
 		}
 

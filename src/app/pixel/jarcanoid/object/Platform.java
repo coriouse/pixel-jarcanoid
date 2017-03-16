@@ -28,7 +28,7 @@ public class Platform extends Mob {
 
 		if (Input.getKey(KeyEvent.VK_LEFT)) {
 			moveX -= runSpeed;
-			direction = Direction.RIGHT;
+			direction = Direction.LEFT;
 		}
 		if (Input.getKey(KeyEvent.VK_RIGHT)) {
 			moveX += runSpeed;

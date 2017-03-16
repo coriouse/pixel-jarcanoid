@@ -1,7 +1,11 @@
 package app.pixel.jarcanoid.object;
 
-public class Ground extends Base{
+import java.awt.Color;
+import java.awt.Graphics;
 
+import app.pixel.jarcanoid.graphic.Render;
+
+public class Ground extends Base {
 
 	public Ground(float posX, float posY, int width, int height) {
 		super(posX, posY, width, height);
@@ -12,7 +16,10 @@ public class Ground extends Base{
 	public String toString() {
 		return "Ground []";
 	}
+	
+	public void render(Graphics g) {
+		//TODO transparacy
+		g.drawRect((int) (posX - width / 2) + Render.gameWidth / 2, (int) (posY - height / 2) + Render.gameHeight / 2, (int)this.width, (int)this.height);
+	}
 
-	
-	
 }

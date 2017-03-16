@@ -21,7 +21,6 @@ public class Base extends Sprite {
 
 	public void render(Graphics g) {
 		g.setColor(Color.BLACK);	
-		//g.drawLine((int)this.posX, (int)this.posY, (int)this.width, (int)this.height);
 		g.fillRect((int) (posX - width / 2) + Render.gameWidth / 2, (int) (posY - height / 2) + Render.gameHeight / 2, (int)this.width, (int)this.height);
 	}
 }

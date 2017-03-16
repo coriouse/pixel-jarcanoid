@@ -31,10 +31,20 @@ public class Game {
 		Arena.currentWorld.addSprite(new Ball(45, 200, 100, 40));
 					
 		//blocks
+		//1 row
 		Arena.currentWorld.addSprite(new Block(0, -150, 80, 40, 0));		
 		Arena.currentWorld.addSprite(new Block(90, -150, 80, 40, 1));
 		Arena.currentWorld.addSprite(new Block(-90, -150, 80, 40, 2));
+		Arena.currentWorld.addSprite(new Block(-180, -150, 80, 40, 3));
+		Arena.currentWorld.addSprite(new Block(180, -150, 80, 40, 4));	
 		
+		Arena.currentWorld.addSprite(new Block(0, -100, 80, 40, 5));		
+		Arena.currentWorld.addSprite(new Block(90, -100, 80, 40, 6));
+		Arena.currentWorld.addSprite(new Block(-90, -100, 80, 40, 7));
+		Arena.currentWorld.addSprite(new Block(-180, -100, 80, 40, 8));
+		Arena.currentWorld.addSprite(new Block(180, -100, 80, 40, 9));
+		
+	
 	}
 
 	public static void quit() {
