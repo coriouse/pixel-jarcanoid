@@ -19,7 +19,9 @@ public class Block extends Sprite {
 	}
 
 	public void update(float deltaTime) {
-		//
+		
+		
+		
 	}
 
 	public void render(Graphics g) {
@@ -29,6 +31,7 @@ public class Block extends Sprite {
 	}
 	
 	public void remove(Sprite sprite) {
+		++Ball.SCORE;
 		Arena.currentWorld.removeSprite(sprite);
 	}
 

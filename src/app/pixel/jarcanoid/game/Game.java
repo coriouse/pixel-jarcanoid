@@ -6,6 +6,7 @@ import app.pixel.jarcanoid.object.WallLeft;
 import app.pixel.jarcanoid.object.WallRight;
 import app.pixel.jarcanoid.object.Ball;
 import app.pixel.jarcanoid.object.Block;
+import app.pixel.jarcanoid.object.Board;
 import app.pixel.jarcanoid.object.Ground;
 import app.pixel.jarcanoid.object.Platform;
 import app.pixel.jarcanoid.object.Proof;
@@ -55,6 +56,8 @@ public class Game {
 		Arena.currentWorld.addSprite(new Scoreboard(-330, 220, 90, 20));
 		Arena.currentWorld.addSprite(new Scoreboard(-310, 220, 90, 20));
 		Arena.currentWorld.addSprite(new Scoreboard(-290, 220, 90, 20));
+		
+		Arena.currentWorld.addSprite(new Board(-270, 220));
 
 	}
 

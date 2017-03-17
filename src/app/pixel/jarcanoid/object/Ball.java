@@ -20,6 +20,7 @@ public class Ball extends Mob {
 	private int push = -1; // 1 - push, -1 - pull
 	
 	public static int LIFES = 3;
+	public static int SCORE = 0;
 
 	public Ball(float posX, float posY, int width, int height) {
 		super(posX, posY);
