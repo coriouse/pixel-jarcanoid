@@ -9,42 +9,53 @@ import app.pixel.jarcanoid.object.Block;
 import app.pixel.jarcanoid.object.Ground;
 import app.pixel.jarcanoid.object.Platform;
 import app.pixel.jarcanoid.object.Proof;
+import app.pixel.jarcanoid.object.Scoreboard;
 
 public class Game {
+
+	private final static int WIDTH_WALLS = 2;
+	private final static int WIDTH_BLOCK = 80;
+	private final static int HEIGHT_BLOCK = 20;
 
 	public static void main(String[] args) {
 		Render.init();
 
 		Arena.currentWorld = new Arena();
-		//Platform
+		// Platform
 		Arena.currentWorld.addSprite(new Platform(0, 200, 100, 20));
-		//Walls
-		Arena.currentWorld.addSprite(
-				new WallRight(390 , 5, 5, Render.gameHeight - 35));
-		Arena.currentWorld.addSprite(new WallLeft(-390, 5, 5,  Render.gameHeight - 35));
-		//Proof
-		Arena.currentWorld.addSprite(new Proof(0,-200, Render.gameWidth-20, 5));
-		//Ground
-		Arena.currentWorld.addSprite(new Ground(0, 215, Render.gameWidth-15, 5));
-		
-		//Ball
+
+		// Walls
+		Arena.currentWorld.addSprite(new WallRight(390, 5, WIDTH_WALLS, Render.gameHeight - 35));
+		Arena.currentWorld.addSprite(new WallLeft(-390, 5, WIDTH_WALLS, Render.gameHeight - 35));
+		// Proof
+		Arena.currentWorld.addSprite(new Proof(0, -202, Render.gameWidth - 20, WIDTH_WALLS));
+		// Ground
+		Arena.currentWorld.addSprite(new Ground(0, 212, Render.gameWidth - 20, 1));
+
+		// Ball
 		Arena.currentWorld.addSprite(new Ball(45, 200, 100, 40));
-					
-		//blocks
-		//1 row
-		Arena.currentWorld.addSprite(new Block(0, -150, 80, 40, 0));		
-		Arena.currentWorld.addSprite(new Block(90, -150, 80, 40, 1));
-		Arena.currentWorld.addSprite(new Block(-90, -150, 80, 40, 2));
-		Arena.currentWorld.addSprite(new Block(-180, -150, 80, 40, 3));
-		Arena.currentWorld.addSprite(new Block(180, -150, 80, 40, 4));	
+
+		// blocks
+		//LEVEL 1
 		
-		Arena.currentWorld.addSprite(new Block(0, -100, 80, 40, 5));		
-		Arena.currentWorld.addSprite(new Block(90, -100, 80, 40, 6));
-		Arena.currentWorld.addSprite(new Block(-90, -100, 80, 40, 7));
-		Arena.currentWorld.addSprite(new Block(-180, -100, 80, 40, 8));
-		Arena.currentWorld.addSprite(new Block(180, -100, 80, 40, 9));
+		// 1 row
+		Arena.currentWorld.addSprite(new Block(0, -150, WIDTH_BLOCK, HEIGHT_BLOCK, 0));
+		Arena.currentWorld.addSprite(new Block(90, -150, WIDTH_BLOCK, HEIGHT_BLOCK, 1));
+		Arena.currentWorld.addSprite(new Block(-90, -150, WIDTH_BLOCK, HEIGHT_BLOCK, 2));
+		Arena.currentWorld.addSprite(new Block(-180, -150, WIDTH_BLOCK, HEIGHT_BLOCK, 3));
+		Arena.currentWorld.addSprite(new Block(180, -150, WIDTH_BLOCK, HEIGHT_BLOCK, 4));
+		// 2 row
+		Arena.currentWorld.addSprite(new Block(0, -120, WIDTH_BLOCK, HEIGHT_BLOCK, 5));
+		Arena.currentWorld.addSprite(new Block(90, -120, WIDTH_BLOCK, HEIGHT_BLOCK, 6));
+		Arena.currentWorld.addSprite(new Block(-90, -120, WIDTH_BLOCK, HEIGHT_BLOCK, 7));
+		Arena.currentWorld.addSprite(new Block(-180, -120, WIDTH_BLOCK, HEIGHT_BLOCK, 8));
+		Arena.currentWorld.addSprite(new Block(180, -120, WIDTH_BLOCK, HEIGHT_BLOCK, 9));
 		
-	
+		
+		Arena.currentWorld.addSprite(new Scoreboard(-330, 220, 90, 20));
+		Arena.currentWorld.addSprite(new Scoreboard(-310, 220, 90, 20));
+		Arena.currentWorld.addSprite(new Scoreboard(-290, 220, 90, 20));
+
 	}
 
 	public static void quit() {

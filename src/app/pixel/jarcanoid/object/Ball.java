@@ -18,6 +18,8 @@ public class Ball extends Mob {
 	private Direction direction = Direction.UP;
 
 	private int push = -1; // 1 - push, -1 - pull
+	
+	public static int LIFES = 3;
 
 	public Ball(float posX, float posY, int width, int height) {
 		super(posX, posY);
