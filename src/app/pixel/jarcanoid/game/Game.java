@@ -6,11 +6,11 @@ import app.pixel.jarcanoid.object.WallLeft;
 import app.pixel.jarcanoid.object.WallRight;
 import app.pixel.jarcanoid.object.Ball;
 import app.pixel.jarcanoid.object.Block;
-import app.pixel.jarcanoid.object.Board;
+import app.pixel.jarcanoid.object.Score;
 import app.pixel.jarcanoid.object.Ground;
 import app.pixel.jarcanoid.object.Platform;
 import app.pixel.jarcanoid.object.Proof;
-import app.pixel.jarcanoid.object.Scoreboard;
+import app.pixel.jarcanoid.object.Lifes;
 
 public class Game {
 
@@ -31,7 +31,7 @@ public class Game {
 		// Proof
 		Arena.currentWorld.addSprite(new Proof(0, -202, Render.gameWidth - 20, WIDTH_WALLS));
 		// Ground
-		Arena.currentWorld.addSprite(new Ground(0, 212, Render.gameWidth - 20, 1));
+		Arena.currentWorld.addSprite(new Ground(0, 230, Render.gameWidth + 200, 1));
 
 		// Ball
 		Arena.currentWorld.addSprite(new Ball(45, 200, 100, 40));
@@ -53,11 +53,11 @@ public class Game {
 		Arena.currentWorld.addSprite(new Block(180, -120, WIDTH_BLOCK, HEIGHT_BLOCK, 9));
 		
 		
-		Arena.currentWorld.addSprite(new Scoreboard(-330, 220, 90, 20));
-		Arena.currentWorld.addSprite(new Scoreboard(-310, 220, 90, 20));
-		Arena.currentWorld.addSprite(new Scoreboard(-290, 220, 90, 20));
+		Arena.currentWorld.addSprite(new Lifes(-330, 220, 90, 20));
+		Arena.currentWorld.addSprite(new Lifes(-310, 220, 90, 20));
+		Arena.currentWorld.addSprite(new Lifes(-290, 220, 90, 20));
 		
-		Arena.currentWorld.addSprite(new Board(-270, 220));
+		Arena.currentWorld.addSprite(new Score(-270, 225));
 
 	}
 

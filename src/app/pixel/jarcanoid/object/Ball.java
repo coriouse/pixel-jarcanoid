@@ -6,6 +6,7 @@ import java.util.Arrays;
 
 import com.sun.glass.events.KeyEvent;
 
+import app.pixel.jarcanoid.arena.Arena;
 import app.pixel.jarcanoid.game.Direction;
 import app.pixel.jarcanoid.graphic.Render;
 import app.pixel.jarcanoid.input.Input;
@@ -18,7 +19,7 @@ public class Ball extends Mob {
 	private Direction direction = Direction.UP;
 
 	private int push = -1; // 1 - push, -1 - pull
-	
+
 	public static int LIFES = 3;
 	public static int SCORE = 0;
 
@@ -42,7 +43,8 @@ public class Ball extends Mob {
 			// TODO need to resolve normal direction of the ball
 			Sprite[] sprites = getColliders(posX, posY);
 			System.out.println("Platform.direction=[" + Platform.direction + "], direction=[" + direction + "],"
-					+ Arrays.toString(sprites) + ", posY=" + posY + ", posX=" + posX);
+					+ Arrays.toString(sprites) + ", posY=" + posY + ", posX=" + posX + ", Render.gameWidth="
+					+ Render.gameWidth + ", Render.gameHeight=" + Render.gameHeight);
 
 			if (sprites.length > 0) {
 				if (direction == Direction.UP && Platform.direction == Direction.FREE
@@ -78,6 +80,17 @@ public class Ball extends Mob {
 				} else if (direction == Direction.DOWN_RIGHT
 						&& (getSprite(sprites) instanceof Platform || getSprite(sprites) instanceof Block)) {
 					direction = Direction.UP_RIGHT;
+				}
+
+				// ball lost
+				if(getSprite(sprites) instanceof Ground) {
+					for (Sprite sprite : Arena.currentWorld.spites) {
+						if (sprite instanceof Lifes) {
+							Lifes block = (Lifes) sprite;
+							block.remove(sprite);
+							//TODO exit from cycle
+						}
+					}
 				}
 
 				// remove block

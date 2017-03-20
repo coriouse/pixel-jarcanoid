@@ -3,13 +3,14 @@ package app.pixel.jarcanoid.object;
 import java.awt.Color;
 import java.awt.Graphics;
 
+import app.pixel.jarcanoid.arena.Arena;
 import app.pixel.jarcanoid.graphic.Render;
 
-public class Scoreboard extends Sprite {
+public class Lifes extends Sprite {
 
 	private float radius = 5f;
 
-	public Scoreboard(float posX, float posY, int width, int height) {
+	public Lifes(float posX, float posY, int width, int height) {
 		super(posX, posY);
 		// TODO Auto-generated constructor stub
 	}
@@ -27,6 +28,11 @@ public class Scoreboard extends Sprite {
 		g.fillOval(((int) (posX - width / 2) + Render.gameWidth / 2) - (int) radius,
 				((int) (posY - height / 2) + Render.gameHeight / 2) - (int) radius, (int) radius * 2, (int) radius * 2);
 
+	}
+	
+	public void remove(Sprite sprite) {
+		Ball.LIFES--;
+		Arena.currentWorld.removeSprite(sprite);
 	}
 
 }
