@@ -31,7 +31,7 @@ public class Block extends Sprite {
 	}
 	
 	public void remove(Sprite sprite) {
-		++Ball.SCORE;
+		++Score.SCORE;
 		Arena.currentWorld.removeSprite(sprite);
 	}
 

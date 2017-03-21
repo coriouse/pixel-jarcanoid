@@ -49,5 +49,4 @@ public class Platform extends Mob {
 	public String toString() {
 		return "Platform []";
 	}
-
 }

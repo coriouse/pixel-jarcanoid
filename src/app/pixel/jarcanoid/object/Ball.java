@@ -16,16 +16,18 @@ public class Ball extends Mob {
 	private float radius = 10f;
 	private float moveX = 0;
 	private float moveY = 0;
+	
+		
 	private Direction direction = Direction.UP;
 
 	private int push = -1; // 1 - push, -1 - pull
 
 	public static int LIFES = 3;
-	public static int SCORE = 0;
+	
 
 	public Ball(float posX, float posY, int width, int height) {
 		super(posX, posY);
-
+		
 		this.width = width;
 		this.height = height;
 		this.runSpeed = 5.0f;
@@ -35,7 +37,6 @@ public class Ball extends Mob {
 	public void update(float deltaTime) {
 
 		if (Input.getKey(KeyEvent.VK_SPACE)) {
-
 			push = 1;
 		}
 
@@ -88,9 +89,29 @@ public class Ball extends Mob {
 						if (sprite instanceof Lifes) {
 							Lifes block = (Lifes) sprite;
 							block.remove(sprite);
-							//TODO exit from cycle
+							break;
+							
 						}
 					}
+					//TODO exit from cycle
+					//ball back start point
+					push = -1;
+					direction = Direction.UP;
+					
+					this.moveX = 0;
+					this.moveY = 0;
+					this.backToStartPoint();
+					
+					//platform back start point
+					Platform.direction = Direction.FREE;
+					for (Sprite sprite : Arena.currentWorld.spites) {
+						if (sprite instanceof Platform) {
+							Platform platform = (Platform) sprite;
+							platform.backToStartPoint();
+							break;
+						}
+					}
+					
 				}
 
 				// remove block
