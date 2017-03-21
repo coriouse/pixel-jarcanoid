@@ -110,17 +110,10 @@ public class Ball extends Mob {
 							platform.backToStartPoint();
 							break;
 						}
-					}
-					
+					}					
 				}
 
-				// remove block
-				for (Sprite sprite : sprites) {
-					if (sprite instanceof Block) {
-						Block block = (Block) sprite;
-						block.remove(sprite);
-					}
-				}
+				removeBlock(sprites);
 
 			}
 			if (direction == Direction.UP_RIGHT) {
@@ -152,5 +145,16 @@ public class Ball extends Mob {
 		g.fillOval(((int) (posX - width / 2) + Render.gameWidth / 2) - (int) radius,
 				((int) (posY - height / 2) + Render.gameHeight / 2) - (int) radius, (int) radius * 2, (int) radius * 2);
 
+	}
+	
+	private void removeBlock(Sprite[] sprites) {
+		// remove block
+		for (Sprite sprite : sprites) {
+			if (sprite instanceof Block) {
+				Block block = (Block) sprite;
+				block.remove(sprite);
+				break;
+			}
+		}
 	}
 }
