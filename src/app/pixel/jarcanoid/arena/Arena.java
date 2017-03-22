@@ -62,5 +62,11 @@ public class Arena {
 			removeSpites.add(sprite);
 		}
 	}
+	
+	public void cleanSprites() {
+		for (Sprite sprite : currentWorld.spites) {
+			removeSprite(sprite);
+		}
+	}
 
 }

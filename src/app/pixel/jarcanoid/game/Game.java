@@ -6,6 +6,7 @@ import app.pixel.jarcanoid.object.WallLeft;
 import app.pixel.jarcanoid.object.WallRight;
 import app.pixel.jarcanoid.object.Ball;
 import app.pixel.jarcanoid.object.Block;
+import app.pixel.jarcanoid.object.GameOver;
 import app.pixel.jarcanoid.object.Score;
 import app.pixel.jarcanoid.object.Ground;
 import app.pixel.jarcanoid.object.Platform;
@@ -58,7 +59,14 @@ public class Game {
 		Arena.currentWorld.addSprite(new Lifes(-290, 220, 90, 20));
 		
 		Arena.currentWorld.addSprite(new Score(-270, 225));
+		
+		//game over
+	//	Arena.currentWorld.addSprite(new GameOver(-130,0));
 
+	}
+	
+	public static void gameOver() {
+		Arena.currentWorld.cleanSprites();
 	}
 
 	public static void quit() {

@@ -151,6 +151,7 @@ public class Render {
 
 					// Draw FPS counter
 					g.setColor(Color.red);
+					g.setFont(g.getFont().deriveFont(10f));
 					g.drawString("FPS: "+String.valueOf(currentFPS), 2, gameHeight - 2);
 
 					g.dispose();
