@@ -1,10 +1,13 @@
 package app.pixel.jarcanoid.object;
 
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.Graphics;
 
+import com.sun.glass.events.KeyEvent;
+
+import app.pixel.jarcanoid.game.Game;
 import app.pixel.jarcanoid.graphic.Render;
+import app.pixel.jarcanoid.input.Input;
 
 public class GameOver extends Sprite {
 
@@ -16,7 +19,11 @@ public class GameOver extends Sprite {
 	
 
 	public void update(float deltaTime) {
-		//
+		if (Input.getKey(KeyEvent.VK_ENTER)) {
+			Game.gameOver();
+			Game.startGame();
+		}
+		
 	}
 
 	public void render(Graphics g) {
@@ -27,6 +34,11 @@ public class GameOver extends Sprite {
 	    g.setFont(g.getFont().deriveFont(20f));
 	    g.drawString("Please press <Enter>", (int) ((posX - width / 2) + Render.gameWidth / 2)+35, (int) ((posY - height / 2) + Render.gameHeight / 2)+25);
 			    
+	}
+
+	@Override
+	public String toString() {
+		return "GameOver []";
 	}
 
 }

@@ -84,10 +84,12 @@ public class Ball extends Mob {
 
 				// ball lost
 				ballLostCounter(sprites);
-				if (LIFES == 0) {
+				
+				if (LIFES == -3) {
 					// TODO exit from cycle, doen't work
 					Game.gameOver();
 				}
+				
 				removeBlock(sprites);
 			}			
 
