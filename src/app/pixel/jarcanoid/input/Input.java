@@ -3,6 +3,12 @@ package app.pixel.jarcanoid.input;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+/**
+ * Keybord controller
+ * 
+ * @author Sergei_Ogarkov
+ *
+ */
 public class Input implements KeyListener {
 
 	private static boolean[] lastKeys = new boolean[196];

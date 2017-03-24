@@ -3,6 +3,12 @@ package app.pixel.jarcanoid.graphic;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
+/**
+ * Sprite animation
+ * 
+ * @author Sergei_Ogarkov
+ *
+ */
 public class Animation {
 
 	public ArrayList<BufferedImage> images = new ArrayList<BufferedImage>();

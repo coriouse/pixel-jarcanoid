@@ -22,7 +22,13 @@ import javax.swing.JFrame;
 import app.pixel.jarcanoid.arena.Arena;
 import app.pixel.jarcanoid.game.Game;
 import app.pixel.jarcanoid.input.Input;
-
+/**
+ * 
+ * Class builds game space, FPS, Windows size, Game size etc
+ * 
+ * @author Sergei_Ogarkov
+ *
+ */
 public class Render {
 
 	private static Frame frame;

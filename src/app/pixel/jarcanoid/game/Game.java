@@ -13,6 +13,12 @@ import app.pixel.jarcanoid.object.Platform;
 import app.pixel.jarcanoid.object.Proof;
 import app.pixel.jarcanoid.object.Lifes;
 
+/**
+ * Game handler
+ * 
+ * @author Sergei_Ogarkov
+ *
+ */
 public class Game {
 
 	private final static int WIDTH_WALLS = 2;

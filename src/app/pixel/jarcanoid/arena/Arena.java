@@ -13,6 +13,7 @@ import app.pixel.jarcanoid.object.Sprite;
  *
  */
 public class Arena {
+	//TODO add levels
 	public static Arena currentArena = null;
 
 	private static long lastTime = System.nanoTime();
