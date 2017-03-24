@@ -57,7 +57,7 @@ public class Sprite {
 		float myUp = y - height / 2;
 		float myDown = y + height / 2;
 
-		for (Sprite sprite : Arena.currentWorld.spites) {
+		for (Sprite sprite : Arena.currentArena.spites) {
 
 			if (sprite == this || !sprite.isSolid) {
 				continue;
@@ -83,7 +83,7 @@ public class Sprite {
 		float myUp = y - height / 2;
 		float myDown = y + height / 2;
 
-		for (Sprite sprite : Arena.currentWorld.spites) {
+		for (Sprite sprite : Arena.currentArena.spites) {
 
 			if (sprite == this || !sprite.isSolid) {
 				continue;

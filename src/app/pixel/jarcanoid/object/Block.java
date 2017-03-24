@@ -32,7 +32,7 @@ public class Block extends Sprite {
 	
 	public void remove(Sprite sprite) {
 		++Score.SCORE;
-		Arena.currentWorld.removeSprite(sprite);
+		Arena.currentArena.removeSprite(sprite);
 	}
 
 	@Override

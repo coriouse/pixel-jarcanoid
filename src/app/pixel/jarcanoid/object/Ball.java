@@ -133,7 +133,7 @@ public class Ball extends Mob {
 
 	private void ballLostCounter(Sprite[] sprites) {
 		if (getSprite(sprites) instanceof Ground) {
-			for (Sprite sprite : Arena.currentWorld.spites) {
+			for (Sprite sprite : Arena.currentArena.spites) {
 				if (sprite instanceof Lifes) {
 					Lifes block = (Lifes) sprite;
 					block.remove(sprite);
@@ -152,7 +152,7 @@ public class Ball extends Mob {
 
 			// platform back start point
 			Platform.direction = Direction.FREE;
-			for (Sprite sprite : Arena.currentWorld.spites) {
+			for (Sprite sprite : Arena.currentArena.spites) {
 				if (sprite instanceof Platform) {
 					Platform platform = (Platform) sprite;
 					platform.backToStartPoint();

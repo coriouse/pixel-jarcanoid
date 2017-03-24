@@ -32,7 +32,7 @@ public class Lifes extends Sprite {
 	
 	public void remove(Sprite sprite) {
 		Ball.LIFES--;
-		Arena.currentWorld.removeSprite(sprite);
+		Arena.currentArena.removeSprite(sprite);
 	}
 
 }

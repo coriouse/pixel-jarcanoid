@@ -6,9 +6,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import app.pixel.jarcanoid.object.Sprite;
-
+/**
+ * Main area of level
+ * 
+ * @author Sergei_Ogarkov
+ *
+ */
 public class Arena {
-	public static Arena currentWorld = null;
+	public static Arena currentArena = null;
 
 	private static long lastTime = System.nanoTime();
 
@@ -24,29 +29,29 @@ public class Arena {
 
 		float deltaTime = (System.nanoTime() - lastTime) / 1000000000.0f;
 		lastTime = System.nanoTime();
-		for (Sprite sprite : currentWorld.spites) {
+		for (Sprite sprite : currentArena.spites) {
 			sprite.update(deltaTime);
 		}
 
-		for (Sprite sprite : currentWorld.addSpites) {
-			if (!currentWorld.spites.contains(sprite)) {
-				currentWorld.spites.add(sprite);
+		for (Sprite sprite : currentArena.addSpites) {
+			if (!currentArena.spites.contains(sprite)) {
+				currentArena.spites.add(sprite);
 			}
 		}
 
-		currentWorld.addSpites.clear();
+		currentArena.addSpites.clear();
 
-		for (Sprite sprite : currentWorld.removeSpites) {
-			if (currentWorld.spites.contains(sprite)) {
-				currentWorld.spites.remove(sprite);
+		for (Sprite sprite : currentArena.removeSpites) {
+			if (currentArena.spites.contains(sprite)) {
+				currentArena.spites.remove(sprite);
 			}
 		}
 
-		currentWorld.removeSpites.clear();
+		currentArena.removeSpites.clear();
 	}
 
 	public static void render(Graphics g) {
-		for (Sprite sprite : currentWorld.spites) {
+		for (Sprite sprite : currentArena.spites) {
 			sprite.render(g);
 		}
 	}
@@ -64,7 +69,7 @@ public class Arena {
 	}
 	
 	public void cleanSprites() {
-		for (Sprite sprite : currentWorld.spites) {
+		for (Sprite sprite : currentArena.spites) {
 			removeSprite(sprite);
 		}
 	}
