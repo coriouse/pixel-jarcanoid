@@ -44,7 +44,7 @@ public class Game {
 	}
 	
 	public static void startGame() {
-		// Platform
+				// Platform
 				Arena.currentArena.addSprite(new Platform(0, 200, 100, 20));
 
 				// Walls

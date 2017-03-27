@@ -46,9 +46,7 @@ public class Platform extends Mob {
 					posX -= runSpeed;
 				}
 			}
-
 		}
-
 	}
 
 	public void render(Graphics g) {
