@@ -34,8 +34,20 @@ public class Platform extends Mob {
 			moveX += runSpeed;
 			direction = Direction.RIGHT;
 		}
-
 		posX += moveX;
+
+		// Defined of border game
+		Sprite[] sprites = getColliders(posX, posY);
+		if (sprites.length > 0) {
+			for (Sprite sprite : sprites) {
+				if (sprite instanceof WallLeft) {
+					posX += runSpeed;
+				} else if (sprite instanceof WallRight) {
+					posX -= runSpeed;
+				}
+			}
+
+		}
 
 	}
 
