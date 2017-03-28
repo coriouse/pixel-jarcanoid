@@ -4,7 +4,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 /**
- * Keybord controller
+ * Keyboard controller
  * 
  * @author Sergei_Ogarkov
  *

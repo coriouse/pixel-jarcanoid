@@ -5,7 +5,11 @@ import java.awt.Graphics;
 
 import app.pixel.jarcanoid.arena.Arena;
 import app.pixel.jarcanoid.graphic.Render;
-
+/**
+ * 
+ * @author Sergei_Ogarkov
+ *
+ */
 public class Lifes extends Sprite {
 
 	private float radius = 5f;

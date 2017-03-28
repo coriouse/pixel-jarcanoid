@@ -1,5 +1,9 @@
 package app.pixel.jarcanoid.object;
-
+/**
+ * 
+ * @author Sergei_Ogarkov
+ *
+ */
 public class Proof extends Base {
 
 

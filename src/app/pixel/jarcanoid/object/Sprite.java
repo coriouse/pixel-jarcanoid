@@ -1,12 +1,14 @@
 package app.pixel.jarcanoid.object;
 
 import java.awt.Graphics;
-import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
 import app.pixel.jarcanoid.arena.Arena;
-import app.pixel.jarcanoid.graphic.Animation;
-
+/**
+ * Sprite, main class
+ * @author Sergei_Ogarkov
+ *
+ */
 public class Sprite {
 
 	public float posX = 0;
@@ -17,7 +19,6 @@ public class Sprite {
 
 	public boolean isSolid = true;
 
-	public Animation[] animations;
 	public int currentAnimation = 0;
 
 	public Sprite(float posX, float posY) {
@@ -30,24 +31,7 @@ public class Sprite {
 	}
 
 	public void render(Graphics g) {
-		if (animations == null || currentAnimation >= animations.length) {
-			return;
-		}
-		animations[currentAnimation].playAnimation();
-
-		BufferedImage image = animations[currentAnimation].getImage();
-
-		if (image == null) {
-			return;
-		}
-
-		int realX = (int) posX - image.getWidth() / 2;
-		int realY = (int) posY - image.getHeight() / 2;
-
-		// realX = realX - (int) Render.camX + Render.gameWidth / 2;
-		// realY = realY - (int) Render.camY + Render.gameHeight / 2;
-
-		g.drawImage(image, realX, realY, image.getWidth(), image.getHeight(), null);
+		//
 	}
 
 	protected boolean doesCollide(float x, float y) {
@@ -68,10 +52,9 @@ public class Sprite {
 			float otherDown = sprite.posY + sprite.height / 2;
 
 			if (myLeft < otherRight && myRight > otherLeft && myDown > otherUp && myUp < otherDown) {
-				//System.out.println(sprite);
 				return true;
 			}
-		}	
+		}
 		return false;
 	}
 
@@ -104,7 +87,7 @@ public class Sprite {
 		return sprites.toArray(spriteArray);
 
 	}
-	
+
 	protected Object getSprite(Sprite[] sprite) {
 		return sprite[0];
 	}

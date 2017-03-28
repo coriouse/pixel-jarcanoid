@@ -22,10 +22,6 @@ public class Arena {
 	public List<Sprite> addSpites = new ArrayList<Sprite>();
 	public List<Sprite> removeSpites = new ArrayList<Sprite>();
 
-	private static BufferedImage backdrop = null;
-
-	private static int backdropX = 0;
-
 	public static void update() {
 
 		float deltaTime = (System.nanoTime() - lastTime) / 1000000000.0f;

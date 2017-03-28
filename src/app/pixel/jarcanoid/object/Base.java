@@ -4,7 +4,11 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 import app.pixel.jarcanoid.graphic.Render;
-
+/**
+ * 
+ * @author Sergei_Ogarkov
+ *
+ */
 public class Base extends Sprite {
 
 	public Base(float posX, float posY, int width, int height) {
@@ -16,7 +20,7 @@ public class Base extends Sprite {
 	}
 
 	public void update(float deltaTime) {
-		// render stuff
+		//
 	}
 
 	public void render(Graphics g) {

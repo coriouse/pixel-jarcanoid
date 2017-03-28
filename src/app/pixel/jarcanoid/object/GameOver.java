@@ -8,7 +8,11 @@ import com.sun.glass.events.KeyEvent;
 import app.pixel.jarcanoid.game.Game;
 import app.pixel.jarcanoid.graphic.Render;
 import app.pixel.jarcanoid.input.Input;
-
+/**
+ * 
+ * @author Sergei_Ogarkov
+ *
+ */
 public class GameOver extends Sprite {
 
 	public GameOver(float posX, float posY) {

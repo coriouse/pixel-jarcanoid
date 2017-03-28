@@ -11,7 +11,11 @@ import app.pixel.jarcanoid.game.Direction;
 import app.pixel.jarcanoid.game.Game;
 import app.pixel.jarcanoid.graphic.Render;
 import app.pixel.jarcanoid.input.Input;
-
+/**
+ * 
+ * @author Sergei_Ogarkov
+ *
+ */
 public class Ball extends Mob {
 
 	private float radius = 10f;

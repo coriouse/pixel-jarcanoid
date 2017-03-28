@@ -1,6 +1,5 @@
 package app.pixel.jarcanoid.object;
 
-import java.awt.Color;
 import java.awt.Graphics;
 
 import app.pixel.jarcanoid.graphic.Render;

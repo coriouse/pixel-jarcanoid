@@ -4,7 +4,11 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 import app.pixel.jarcanoid.graphic.Render;
-
+/**
+ * 
+ * @author Sergei_Ogarkov
+ *
+ */
 public class Score extends Sprite {
 	
 	public static int SCORE = 0;

@@ -8,7 +8,11 @@ import com.sun.glass.events.KeyEvent;
 import app.pixel.jarcanoid.game.Direction;
 import app.pixel.jarcanoid.graphic.Render;
 import app.pixel.jarcanoid.input.Input;
-
+/**
+ * 
+ * @author Sergei_Ogarkov
+ *
+ */
 public class Platform extends Mob {
 
 	public static Direction direction = Direction.FREE;

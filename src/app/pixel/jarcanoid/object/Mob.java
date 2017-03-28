@@ -1,5 +1,9 @@
 package app.pixel.jarcanoid.object;
-
+/**
+ * 
+ * @author Sergei_Ogarkov
+ *
+ */
 public class Mob extends Sprite {
 
 	protected float runSpeed = 50.0f;
